@@ -63,7 +63,7 @@ const merge = function (dirname = Path.resolve(Path.dirname(Caller())), extensio
         return crawl(dirname, extensions);
     }
 
-    crawl(dirname, callback).then((result) => callback(null, result)).catch(callback);
+    crawl(dirname, extensions, callback).then((result) => callback(null, result)).catch(callback);
 };
 
 module.exports.merge = merge;

@@ -40,4 +40,15 @@ Test('test merge-object-files', (t) => {
         .catch(console.log);
     });
 
+    t.test('accepts callback', (t) => {
+        t.plan(4);
+
+        Files.merge(Path.resolve(__dirname, 'fixtures'), ['json'], (error, merged) => {
+            t.error(error);
+            t.ok(merged);
+            t.ok(!merged.a.b);
+            t.ok(!merged.test);
+        });
+    });
+
 });
