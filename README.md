@@ -4,6 +4,8 @@ Merges a directory containing json or other files exporting objects and merges t
 
 Sub directories and files become keys under the merged objects, with file contents becoming values.
 
+Requires Node 6.
+
 ### api
 
 `merge-object-files` exposes a single method.
