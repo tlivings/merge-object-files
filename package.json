@@ -1,0 +1,40 @@
+{
+  "name": "merge-object-files",
+  "description": "Merges objects in files into a single object.",
+  "version": "1.0.0",
+  "author": "Trevor Livingston <tlivings@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tlivings/merge-object-files.git"
+  },
+  "bugs": "http://github.com/tlivings/merge-object-files/issues",
+  "engines": {
+    "node": ">= 6.0.0"
+  },
+  "dependencies": {
+    "babel-regenerator-runtime": "^6.3.13",
+    "babel-runtime": "^6.3.19",
+    "caller": "^1.0.1",
+    "co": "^4.6.0",
+    "entries": "^1.0.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.1.4",
+    "babel-eslint": "^4.0.0",
+    "babel-plugin-syntax-async-functions": "^6.1.18",
+    "babel-plugin-transform-es2015-arrow-functions": "^6.4.0",
+    "babel-plugin-transform-es2015-for-of": "^6.3.13",
+    "babel-plugin-transform-regenerator": "^6.4.4",
+    "babel-plugin-transform-runtime": "^6.3.13",
+    "babel-preset-es2015-node4": "^2.0.2",
+    "eslint": "^1.10.3",
+    "istanbul": "^0.4.1",
+    "tape": "^4.2.2"
+  },
+  "scripts": {
+    "test": "tape test/*.js",
+    "lint": "eslint index.js",
+    "cover": "istanbul cover tape -- test/*.js"
+  },
+  "main": "./index"
+}
