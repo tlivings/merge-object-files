@@ -21,7 +21,7 @@ const stats = promisify(Fs.stat);
 
 const crawl = Co.wrap(function *(dirname, stripextension, filetest) {
     const files = yield readdir(dirname);
-    let handlers = {};
+    const handlers = {};
 
     for (const file of files) {
         const abspath = Path.join(dirname, file);
