@@ -19,19 +19,14 @@ const promisify = function (fn, ctx) {
 const readdir = promisify(Fs.readdir);
 const stats = promisify(Fs.stat);
 
-const crawl = Co.wrap(function *(dirname, extensions) {
-    const extregex = `\.(${extensions.join('|')})$`;
-    const replacetest = RegExp(extregex, 'g');
-    const filetest = RegExp(`^.*${extregex}`);
-
+const crawl = Co.wrap(function *(dirname, stripextension, filetest) {
     const files = yield readdir(dirname);
-
     let handlers = {};
 
     for (const file of files) {
         const abspath = Path.join(dirname, file);
+        const key = file.replace(stripextension, '');
         const stat = yield stats(abspath);
-        const key = file.replace(replacetest, '');
 
         if (stat.isFile()) {
             if (filetest.test(file)) {
@@ -47,7 +42,7 @@ const crawl = Co.wrap(function *(dirname, extensions) {
             }
         }
         if (stat.isDirectory()) {
-            const next = yield crawl(abspath, extensions);
+            const next = yield crawl(abspath, stripextension, filetest);
 
             if (Object.keys(next).length) {
                 handlers[key] = next;
@@ -59,11 +54,17 @@ const crawl = Co.wrap(function *(dirname, extensions) {
 });
 
 const merge = function (dirname = Path.resolve(Path.dirname(Caller())), extensions = ['json'], callback) {
+    const extregex = `\.(${extensions.join('|')})$`;
+    const stripextension = RegExp(extregex, 'g');
+    const filetest = RegExp(`^.*${extregex}`);
+
+    const result = crawl(dirname, stripextension, filetest);
+
     if (!callback) {
-        return crawl(dirname, extensions);
+        return result;
     }
 
-    crawl(dirname, extensions).then((result) => callback(null, result)).catch(callback);
+    result.then((merged) => callback(null, merged)).catch(callback);
 };
 
 module.exports.merge = merge;

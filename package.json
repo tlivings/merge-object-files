@@ -1,7 +1,7 @@
 {
   "name": "merge-object-files",
   "description": "Merges objects in files into a single object.",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "Trevor Livingston <tlivings@gmail.com>",
   "repository": {
     "type": "git",

@@ -1,6 +1,10 @@
 
 ### v1.0.2
 
+- optimized creating the regex tests.
+
+### v1.0.2
+
 - removed babel dependencies
 - removed unnecessary argument
 
