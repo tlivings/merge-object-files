@@ -1,5 +1,5 @@
 
-### v1.0.4
+### v1.0.4 - in progress
 
 - handlers variable changed to const.
 
