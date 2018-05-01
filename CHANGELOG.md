@@ -1,7 +1,7 @@
 
-### v1.0.4 - in progress
+### v2.0.0
 
-- handlers variable changed to const.
+- node 8 with async/await and some dependencies removed.
 
 ### v1.0.3
 

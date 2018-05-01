@@ -1,7 +1,7 @@
 {
   "name": "merge-object-files",
   "description": "Merges objects in files into a single object.",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "author": "Trevor Livingston <tlivings@gmail.com>",
   "repository": {
     "type": "git",
@@ -9,22 +9,18 @@
   },
   "bugs": "http://github.com/tlivings/merge-object-files/issues",
   "engines": {
-    "node": ">= 6.0.0"
-  },
-  "dependencies": {
-    "caller": "^1.0.1",
-    "co": "^4.6.0",
-    "entries": "^1.0.1"
+    "node": ">= 8.0.0"
   },
   "devDependencies": {
-    "eslint": "^1.10.3",
-    "istanbul": "^0.4.1",
-    "tape": "^4.2.2"
+    "eslint": "^4.19.1",
+    "istanbul": "^0.4.5",
+    "tape": "^4.9.0"
   },
   "scripts": {
     "test": "tape test/*.js",
-    "lint": "eslint index.js",
+    "lint": "eslint index.js lib/",
     "cover": "istanbul cover tape -- test/*.js"
   },
-  "main": "./index"
+  "main": "./index",
+  "license": "MIT"
 }
