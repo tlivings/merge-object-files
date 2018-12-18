@@ -7,12 +7,13 @@ const Path = require('path');
 Test('test merge-object-files', (t) => {
 
     t.test('accepts extensions', (t) => {
-        t.plan(2);
+        t.plan(3);
 
         Files.merge(Path.resolve(__dirname, 'fixtures'), ['js', 'json'])
         .then((merged) => {
             t.ok(merged);
             t.ok(merged.a.b.btest.key);
+            t.ok(typeof merged.a.c === 'function');
         })
         .catch(console.log);
     });
