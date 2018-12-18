@@ -21,6 +21,11 @@ const crawl = async function (dirname, stripextension, filetest) {
             if (filetest.test(file)) {
                 const obj = require(abspath);
 
+                if (typeof obj === 'function') {
+                    objects[key] = obj;
+                    continue;
+                }
+
                 if (!objects[key]) {
                     objects[key] = {};
                 }
