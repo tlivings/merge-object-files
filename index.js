@@ -22,7 +22,7 @@ const crawl = async function (dirname, stripextension, filetest) {
                 if (!objects[key]) {
                     objects[key] = {};
                 }
-}
+
                 if (obj.default) {
                   for (const [k, v] of Object.entries(obj.default)) {
                     objects[key][k] = v;
