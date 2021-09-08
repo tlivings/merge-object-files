@@ -1,7 +1,7 @@
 {
   "name": "merge-object-files-es6",
   "description": "Merges objects in files into a single object.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Trevor Livingston <tlivings@gmail.com>",
   "type": "module",
   "repository": {
