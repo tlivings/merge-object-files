@@ -17,7 +17,7 @@ const crawl = async function (dirname, stripextension, filetest) {
 
         if (stat.isFile()) {
             if (filetest.test(file)) {
-                const obj = require(abspath);
+                const obj = await import(abspath);
 
                 if (!objects[key]) {
                     objects[key] = {};
