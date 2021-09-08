@@ -1,9 +1,7 @@
-'use strict';
-
-const Fs = require('fs');
-const Path = require('path');
-const Util = require('util');
-const Caller = require('./lib/caller');
+import Fs from 'fs';
+import Path from 'path';
+import Util from 'util';
+import { caller } from './lib/caller.js';
 
 const readdir = Util.promisify(Fs.readdir);
 const stats = Util.promisify(Fs.stat);
@@ -42,7 +40,7 @@ const crawl = async function (dirname, stripextension, filetest) {
     return objects;
 };
 
-const merge = function (dirname = Path.resolve(Path.dirname(Caller())), extensions = ['.json'], callback) {
+export const merge = function (dirname = Path.resolve(Path.dirname(caller())), extensions = ['.json'], callback) {
     const extregex = `.(${extensions.join('|')})$`;
     const stripextension = RegExp(extregex, 'g');
     const filetest = RegExp(`^.*${extregex}`);
@@ -56,4 +54,4 @@ const merge = function (dirname = Path.resolve(Path.dirname(Caller())), extensio
     result.then((merged) => callback(null, merged)).catch(callback);
 };
 
-module.exports.merge = merge;
+export default {merge};

@@ -1,13 +1,14 @@
 {
-  "name": "merge-object-files",
+  "name": "merge-object-files-es6",
   "description": "Merges objects in files into a single object.",
-  "version": "2.0.0",
+  "version": "1.0.0",
   "author": "Trevor Livingston <tlivings@gmail.com>",
+  "type": "module",
   "repository": {
     "type": "git",
-    "url": "git://github.com/tlivings/merge-object-files.git"
+    "url": "git://github.com/jceb/merge-object-files-es6.git"
   },
-  "bugs": "http://github.com/tlivings/merge-object-files/issues",
+  "bugs": "http://github.com/jceb/merge-object-files-es6/issues",
   "engines": {
     "node": ">= 8.0.0"
   },
@@ -17,10 +18,10 @@
     "tape": "^4.9.0"
   },
   "scripts": {
-    "test": "tape test/*.js",
     "lint": "eslint index.js lib/",
-    "cover": "istanbul cover tape -- test/*.js"
+    "test": "NODE_OPTIONS='--experimental-json-modules --experimental-import-meta-resolve' npx tape test/*.js",
+    "cover": "NODE_OPTIONS='--experimental-json-modules --experimental-import-meta-resolve' istanbul cover tape -- test/*.js"
   },
-  "main": "./index",
+  "main": "./index.js",
   "license": "MIT"
 }
