@@ -13,9 +13,9 @@
     "node": ">= 8.0.0"
   },
   "devDependencies": {
-    "eslint": "^4.19.1",
+    "eslint": "^7.32.0",
     "istanbul": "^0.4.5",
-    "tape": "^4.9.0"
+    "tape": "^5.3.1"
   },
   "scripts": {
     "lint": "eslint index.js lib/",
