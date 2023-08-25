@@ -43,7 +43,7 @@ const crawl = async function (dirname, stripextension, filetest) {
 };
 
 const merge = function (dirname = Path.resolve(Path.dirname(Caller())), extensions = ['.json'], callback) {
-    const extregex = `.(${extensions.join('|')})$`;
+    const extregex = `\\.(${extensions.map(ext => ext.replace('.', '\\.')).join('|')})$`;
     const stripextension = RegExp(extregex, 'g');
     const filetest = RegExp(`^.*${extregex}`);
 
